@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{5A1B0F8C-20BA-4881-A088-259F4F2ABE21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{DC221107-053E-4B0D-82A1-534667759435}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{BE1A1716-D645-4743-AADA-B74C897FA1EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1E34C3B7-88D4-4A0A-A0B1-B371EB61DEE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishMarket.Model", "FishMarket.Model\FishMarket.Model.csproj", "{2ABEDC4A-B3B9-4796-B629-DBCA379864FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishMarket.Repository", "FishMarket.Repository\FishMarket.Repository.csproj", "{DCAAD547-0ED3-43BB-9A97-F60B2585A8C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishMarket.Web", "FishMarket.Web\FishMarket.Web.csproj", "{E228D796-DAE9-4F2B-8407-B0FAFD1794C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishMarket.Web.Tests", "FishMarket.Web.Tests\FishMarket.Web.Tests.csproj", "{18389B8A-D8FE-46DD-85A4-55A72CBA0C4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2ABEDC4A-B3B9-4796-B629-DBCA379864FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABEDC4A-B3B9-4796-B629-DBCA379864FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABEDC4A-B3B9-4796-B629-DBCA379864FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABEDC4A-B3B9-4796-B629-DBCA379864FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCAAD547-0ED3-43BB-9A97-F60B2585A8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAAD547-0ED3-43BB-9A97-F60B2585A8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCAAD547-0ED3-43BB-9A97-F60B2585A8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCAAD547-0ED3-43BB-9A97-F60B2585A8C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E228D796-DAE9-4F2B-8407-B0FAFD1794C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E228D796-DAE9-4F2B-8407-B0FAFD1794C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E228D796-DAE9-4F2B-8407-B0FAFD1794C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E228D796-DAE9-4F2B-8407-B0FAFD1794C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18389B8A-D8FE-46DD-85A4-55A72CBA0C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18389B8A-D8FE-46DD-85A4-55A72CBA0C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18389B8A-D8FE-46DD-85A4-55A72CBA0C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18389B8A-D8FE-46DD-85A4-55A72CBA0C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2ABEDC4A-B3B9-4796-B629-DBCA379864FF} = {5A1B0F8C-20BA-4881-A088-259F4F2ABE21}
+		{DCAAD547-0ED3-43BB-9A97-F60B2585A8C5} = {BE1A1716-D645-4743-AADA-B74C897FA1EB}
+		{E228D796-DAE9-4F2B-8407-B0FAFD1794C6} = {DC221107-053E-4B0D-82A1-534667759435}
+		{18389B8A-D8FE-46DD-85A4-55A72CBA0C4C} = {1E34C3B7-88D4-4A0A-A0B1-B371EB61DEE0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8117368D-0F26-4C14-8C56-1A2D4C84AC4D}
+	EndGlobalSection
+EndGlobal
