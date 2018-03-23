@@ -15,33 +15,16 @@
 {
     <div class="panel-body">
         @Html.HiddenFor(m => m.FishId)
-        @foreach (var property in ViewData.ModelMetadata.Properties)
-        {
-            switch (property.PropertyName)
-            {
-                case "FishId":
-                case "UserId":
-                case "User":
-                case "ImageData":
-                case "ImageMimeType":
-                    // do nothing
-                    break;
-                default:
-                    <div class="form-group">
-                        <label>@(property.DisplayName ?? property.PropertyName)</label>
-                        @if (property.PropertyName == "Price")
-                        {
-                            @Html.TextBox(property.PropertyName.ToString(), null, new { @class = "form-control", @type="number" })
-                        }
-                        else
-                        {
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-                        }
-                        @Html.ValidationMessage(property.PropertyName)
-                    </div>
-                    break;
-            }
-        }
+        <div class="form-group">
+            <label>Name</label>
+            @Html.TextBox("Name", Model.Name, new { @class = "form-control" })
+            @Html.ValidationMessage("Name")
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            @Html.TextBox("Price", Model.Price.ToString().Replace(",","."), new { @class = "form-control", @type = "number", @step="0.01" })
+            @Html.ValidationMessage("Price")
+        </div>
         <div class="form-group">
             <div style="position: relative;">
                 <label>Image</label>
@@ -64,9 +47,9 @@
             }
         </div>
     </div>
-    <div class="panel-footer">
-        <input type="submit" value="Save" class="btn btn-primary" />
-        @Html.ActionLink("Cancel  and  return  to  List", "Index", null, new { @class = "btn btn-default" })
+    <div class="modal-footer">
+        <a href="/Fish/Index" class="btn btn-danger">Cancel</a>
+        <input type="submit" value="Save" class="btn btn-success" />
     </div>
 }
 

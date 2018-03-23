@@ -12,6 +12,7 @@ namespace FishMarket.Model.Entities
         [Required]
         public string Name { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "*.##")]
         public double Price { get; set; }
         public byte[] ImageData { get; set; }
         public string ImageMimeType { get; set; }
