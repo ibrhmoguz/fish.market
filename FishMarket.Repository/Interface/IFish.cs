@@ -1,4 +1,4 @@
-﻿using FishMarket.Model;
+﻿using FishMarket.Model.Entities;
 using System.Collections.Generic;
 
 namespace FishMarket.Repository.Interface

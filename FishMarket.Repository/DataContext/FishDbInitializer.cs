@@ -1,10 +1,6 @@
-﻿using FishMarket.Model;
-using System;
+﻿using FishMarket.Model.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FishMarket.Repository.DataContext
 {

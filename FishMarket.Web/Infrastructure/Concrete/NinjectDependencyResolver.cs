@@ -2,47 +2,59 @@
 using FishMarket.Repository.Repository;
 using FishMarket.Web.Infrastructure.Abstract;
 using Ninject;
+using Ninject.Syntax;
 using System;
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
 
 namespace FishMarket.Web.Infrastructure.Concrete
 {
-    public class NinjectDependencyResolver : IDependencyResolver
+    public class NinjectDependencyResolver : NinjectDependencyScope, IDependencyResolver
     {
-        private IKernel kernel;
+        IKernel kernel;
 
-        public NinjectDependencyResolver(IKernel kernelParam)
+        public NinjectDependencyResolver(IKernel kernel) : base(kernel)
         {
-            kernel = kernelParam;
-            AddBindings();
+            this.kernel = kernel;
         }
 
         public IDependencyScope BeginScope()
         {
-            throw new NotImplementedException();
+            return new NinjectDependencyScope(kernel.BeginBlock());
         }
+    }
 
-        public void Dispose()
+    public class NinjectDependencyScope : IDependencyScope
+    {
+        IResolutionRoot resolver;
+
+        public NinjectDependencyScope(IResolutionRoot resolver)
         {
-            throw new NotImplementedException();
+            this.resolver = resolver;
         }
 
         public object GetService(Type serviceType)
         {
-            return kernel.TryGet(serviceType);
+            if (resolver == null)
+                throw new ObjectDisposedException("this", "This scope has been disposed");
+
+            return resolver.TryGet(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return kernel.GetAll(serviceType);
+            if (resolver == null)
+                throw new ObjectDisposedException("this", "This scope has been disposed");
+
+            return resolver.GetAll(serviceType);
         }
 
-        private void AddBindings()
+        public void Dispose()
         {
-            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
-            kernel.Bind<IUser>().To<UserRepository>();
-            kernel.Bind<IFish>().To<FishRepository>();
+            if (resolver is IDisposable disposable)
+                disposable.Dispose();
+
+            resolver = null;
         }
     }
 }

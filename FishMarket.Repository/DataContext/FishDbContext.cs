@@ -1,4 +1,4 @@
-﻿using FishMarket.Model;
+﻿using FishMarket.Model.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 

@@ -5,7 +5,11 @@ namespace FishMarket.Web.App_Start
 {
     using System;
     using System.Web;
-
+    using System.Web.Http;
+    using FishMarket.Repository.Interface;
+    using FishMarket.Repository.Repository;
+    using FishMarket.Web.Infrastructure.Abstract;
+    using FishMarket.Web.Infrastructure.Concrete;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -31,24 +35,22 @@ namespace FishMarket.Web.App_Start
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            try
-            {
-                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+            kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                RegisterServices(kernel);
-                return kernel;
-            }
-            catch
-            {
-                kernel.Dispose();
-                throw;
-            }
+            RegisterServices(kernel);
+
+            // Install our Ninject-based IDependencyResolver into the Web API config
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+
+            return kernel;
         }
 
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new FishMarket.Web.Infrastructure.Concrete.NinjectDependencyResolver(kernel));
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+            kernel.Bind<IUser>().To<UserRepository>();
+            kernel.Bind<IFish>().To<FishRepository>();
         }
     }
 }

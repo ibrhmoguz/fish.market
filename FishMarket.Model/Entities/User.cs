@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace FishMarket.Model
+namespace FishMarket.Model.Entities
 {
     public class User
     {

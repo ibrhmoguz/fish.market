@@ -17,6 +17,7 @@ namespace FishMarket.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             Database.SetInitializer(new FishDbInitializer());
+
         }
     }
 }
