@@ -9,6 +9,6 @@ namespace FishMarket.Repository.Interface
 {
     public interface IUser
     {
-        IEnumerable<User> Users();
+        IEnumerable<User> GetAllUsers();
     }
 }

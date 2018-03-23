@@ -134,6 +134,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FishMarket.Model\FishMarket.Model.csproj">
+      <Project>{2abedc4a-b3b9-4796-b629-dbca379864ff}</Project>
+      <Name>FishMarket.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FishMarket.Repository\FishMarket.Repository.csproj">
+      <Project>{dcaad547-0ed3-43bb-9a97-f60b2585a8c5}</Project>
+      <Name>FishMarket.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

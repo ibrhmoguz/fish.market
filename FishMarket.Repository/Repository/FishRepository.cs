@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace FishMarket.Repository.Repository
 {
-    public class UserRepository : IUser
+    public class FishRepository : IFish
     {
-        public IEnumerable<User> GetAllUsers()
+        public IEnumerable<Fish> GetFishesByUserId(int userId)
         {
             using (FishDbContext context = new FishDbContext())
             {
-                return context.Users.ToList();
+                return context.Fishes.Where(x => x.UserId.Equals(userId)).ToList();
             }
         }
     }

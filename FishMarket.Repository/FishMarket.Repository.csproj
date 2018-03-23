@@ -48,14 +48,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\FishDbContext.cs" />
+    <Compile Include="DataContext\FishDbInitializer.cs" />
+    <Compile Include="Interface\IFish.cs" />
     <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Migrations\201803230928243_Initial.cs" />
+    <Compile Include="Migrations\201803230928243_Initial.Designer.cs">
+      <DependentUpon>201803230928243_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\FishRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FishMarket.Model\FishMarket.Model.csproj">
+      <Project>{2abedc4a-b3b9-4796-b629-dbca379864ff}</Project>
+      <Name>FishMarket.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803230928243_Initial.resx">
+      <DependentUpon>201803230928243_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

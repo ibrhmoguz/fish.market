@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace FishMarket.Model
@@ -7,16 +8,15 @@ namespace FishMarket.Model
     {
         [Key]
         public int UserId { get; set; }
-
         [DisplayName("User Name")]
         [Required]
         public string UserName { get; set; }
-
         [Required]
         public string Password { get; set; }
-
         [DisplayName("E-Mail")]
         [Required]
         public string Email { get; set; }
+
+        public virtual ICollection<Fish> Fishes { get; set; }
     }
 }

@@ -9,10 +9,11 @@ namespace FishMarket.Repository.DataContext
         public FishDbContext()
             : base("fishMarketDbConnectionString")
         {
-
+            Database.SetInitializer(new FishDbInitializer());
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Fish> Fishes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
