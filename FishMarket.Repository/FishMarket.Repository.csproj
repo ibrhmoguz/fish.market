@@ -59,6 +59,22 @@
     <Compile Include="Migrations\201803232045564_Activation.Designer.cs">
       <DependentUpon>201803232045564_Activation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803232050397_DataLength.cs" />
+    <Compile Include="Migrations\201803232050397_DataLength.Designer.cs">
+      <DependentUpon>201803232050397_DataLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232055578_UserName.cs" />
+    <Compile Include="Migrations\201803232055578_UserName.Designer.cs">
+      <DependentUpon>201803232055578_UserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232236423_User.cs" />
+    <Compile Include="Migrations\201803232236423_User.Designer.cs">
+      <DependentUpon>201803232236423_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232240549_ActivationCodeMaxLength.cs" />
+    <Compile Include="Migrations\201803232240549_ActivationCodeMaxLength.Designer.cs">
+      <DependentUpon>201803232240549_ActivationCodeMaxLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\FishRepository.cs" />
@@ -80,6 +96,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803232045564_Activation.resx">
       <DependentUpon>201803232045564_Activation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232050397_DataLength.resx">
+      <DependentUpon>201803232050397_DataLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232055578_UserName.resx">
+      <DependentUpon>201803232055578_UserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232236423_User.resx">
+      <DependentUpon>201803232236423_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232240549_ActivationCodeMaxLength.resx">
+      <DependentUpon>201803232240549_ActivationCodeMaxLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

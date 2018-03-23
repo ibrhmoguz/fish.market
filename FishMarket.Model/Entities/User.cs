@@ -11,21 +11,15 @@ namespace FishMarket.Model.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
-        [DisplayName("User Name")]
-        [MaxLength(50)]
-        [Required]
-        public string UserName { get; set; }
-
         [MaxLength(50)]
         [Required]
         public string Password { get; set; }
 
         [DisplayName("E-Mail")]
-        [MaxLength(50)]
         [Required]
         public string Email { get; set; }
 
-        [MaxLength(10)]
+        [MaxLength(50)]
         public string ActivationCode { get; set; }
         public bool ActivationStatus { get; set; }
 

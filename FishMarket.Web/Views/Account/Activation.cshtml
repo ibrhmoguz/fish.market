@@ -1,0 +1,26 @@
+﻿@model object
+@{
+    ViewBag.Title = "Activation";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="container-fluid">
+    @if (TempData["activated"] != null)
+    {
+        <div class="alert alert-success">@TempData["activated"]</div>
+        <a href="/Account/Login" class="btn btn-primary">Login</a>
+    }
+    else
+    {
+        <h1>Thank You for Signing Up!</h1>
+        <h1>
+            Check the confirmation email at @Model
+        </h1>
+        <p class="mbs">Note: If you do not receive the email in few minutes:</p>
+        <ul>
+            <li>check spam folder</li>
+            <li>verify if you typed your email correctly</li>
+        </ul>
+        <a href="/Fish/ResendActivation?mail=@Model" class="btn btn-primary">Re-Send Activation Code</a>
+    }
+</div>

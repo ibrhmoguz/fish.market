@@ -4,14 +4,14 @@ using System.Data.Entity;
 
 namespace FishMarket.Repository.DataContext
 {
-    public class FishDbInitializer : DropCreateDatabaseIfModelChanges<FishDbContext>
+    public class FishDbInitializer : CreateDatabaseIfNotExists<FishDbContext>
     {
         protected override void Seed(FishDbContext context)
         {
             var users = new List<User>
             {
-                new User{UserName="ibrahim", Password="123", Email="ibrahim@test.com"},
-                new User{UserName="test", Password="123", Email="test@test.com"}
+                new User{Email="ibrahim@test.com", Password="123"},
+                new User{Email="test@test.com", Password="123"}
             };
 
             users.ForEach(u => context.Users.Add(u));

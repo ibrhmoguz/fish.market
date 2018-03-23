@@ -3,8 +3,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
-using System.Data.Entity;
 using FishMarket.Repository.DataContext;
+using System.Data.Entity;
 
 namespace FishMarket.Web
 {
@@ -17,7 +17,6 @@ namespace FishMarket.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             Database.SetInitializer(new FishDbInitializer());
-
         }
     }
 }

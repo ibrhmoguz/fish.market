@@ -15,5 +15,14 @@ namespace FishMarket.Repository.Repository
                 return context.Users.ToList();
             }
         }
+
+        public void SaveUser(User user)
+        {
+            using (var context = new FishDbContext())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+        }
     }
 }

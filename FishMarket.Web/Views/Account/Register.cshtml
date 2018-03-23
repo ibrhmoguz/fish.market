@@ -1,15 +1,15 @@
 ﻿@model FishMarket.Model.ViewModel.LoginViewModel
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 <div class="panel">
     <div class="panel-heading">
-        <h3>Log In</h3>
+        <h3>Register</h3>
     </div>
     <div class="panel-body">
         <p class="lead">
-            Please log in to access to Fish Market:
+            Please register to access to Fish Market:
         </p>
         @using (Html.BeginForm())
         {
@@ -22,8 +22,8 @@
                 <label>Password:</label>
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             </div>
-            <input type="submit" value="Log in" class="btn btn-primary" />
-            <a href="/Account/Register" class="btn btn-primary pull-right">Sign up</a><span class="pull-right">You have no account?</span>
+            <input type="submit" value="Register" class="btn btn-primary" />
         }
     </div>
 </div>
+

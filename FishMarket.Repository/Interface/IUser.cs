@@ -6,5 +6,6 @@ namespace FishMarket.Repository.Interface
     public interface IUser
     {
         IEnumerable<User> GetAllUsers();
+        void SaveUser(User user);
     }
 }
