@@ -50,6 +50,7 @@
     <Compile Include="Entities\Fish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="RestAPI\FishRestful.cs" />
     <Compile Include="ViewModel\FishListViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>

@@ -46,5 +46,13 @@ namespace FishMarket.Repository.Repository
                 context.SaveChanges();
             }
         }
+
+        public IEnumerable<Fish> GetFishes()
+        {
+            using (var context = new FishDbContext())
+            {
+                return context.Fishes.ToList();
+            }
+        }
     }
 }
