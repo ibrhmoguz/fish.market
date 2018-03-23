@@ -7,5 +7,6 @@ namespace FishMarket.Repository.Interface
     {
         IEnumerable<Fish> GetFishesByUserId(int userId);
         Fish GetFishById(int fishId);
+        void SaveFish(Fish fish);
     }
 }

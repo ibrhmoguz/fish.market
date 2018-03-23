@@ -5,8 +5,13 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h1>Fish List</h1>
-
+<h3>Fish List</h3>
+<div class="container-fluid">
+    <div class="row">
+        <a href="/Fish/Edit/0" class="btn btn-success pull-right">+ Add New Fish</a>
+    </div>
+</div>
+<br />
 @foreach (var fish in Model.Fishes)
 {
     @Html.Partial("FishDetail", fish)

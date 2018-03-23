@@ -10,7 +10,7 @@ namespace FishMarket.Repository.Repository
     {
         public IEnumerable<Fish> GetFishesByUserId(int userId)
         {
-            using (FishDbContext context = new FishDbContext())
+            using (var context = new FishDbContext())
             {
                 return context.Fishes.Where(x => x.UserId.Equals(userId)).ToList();
             }
@@ -18,9 +18,32 @@ namespace FishMarket.Repository.Repository
 
         public Fish GetFishById(int fishId)
         {
-            using (FishDbContext context = new FishDbContext())
+            using (var context = new FishDbContext())
             {
                 return context.Fishes.FirstOrDefault(f => f.FishId.Equals(fishId));
+            }
+        }
+
+        public void SaveFish(Fish fish)
+        {
+            using (var context = new FishDbContext())
+            {
+                if (fish.FishId == 0)
+                {
+                    context.Fishes.Add(fish);
+                }
+                else
+                {
+                    Fish fishFromDb = context.Fishes.Find(fish.FishId);
+                    if (fishFromDb != null)
+                    {
+                        fishFromDb.Name = fish.Name;
+                        fishFromDb.Price = fish.Price;
+                        fishFromDb.ImageData = fish.ImageData;
+                        fishFromDb.ImageMimeType = fish.ImageMimeType;
+                    }
+                }
+                context.SaveChanges();
             }
         }
     }

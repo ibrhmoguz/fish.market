@@ -1,4 +1,5 @@
-﻿using FishMarket.Model.ViewModel;
+﻿using FishMarket.Model.Entities;
+using FishMarket.Model.ViewModel;
 using FishMarket.Repository.Interface;
 using FishMarket.Web.Infrastructure.Concrete;
 using System;
@@ -40,6 +41,48 @@ namespace FishMarket.Web.Controllers
             }
 
             return File(fish.ImageData, fish.ImageMimeType);
+        }
+
+        public ViewResult Edit(int id)
+        {
+            var fishModel = new Fish();
+            var fish = fishRepository.GetFishById(id);
+            if (fish != null)
+            {
+                fishModel = fish;
+            }
+
+            return View(fishModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Fish fish, HttpPostedFileBase image = null)
+        {
+            if (ModelState.IsValid)
+            {
+                if (image != null)
+                {
+                    fish.ImageMimeType = image.ContentType;
+                    fish.ImageData = new byte[image.ContentLength];
+                    image.InputStream.Read(fish.ImageData, 0, image.ContentLength);
+                }
+                fishRepository.SaveFish(fish);
+                TempData["message"] = string.Format("{0}  has  been  saved", fish.Name);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(fish);
+            }
+        }
+
+        public ViewResult RemoveImage(int fishId)
+        {
+            var fish = fishRepository.GetFishById(fishId);
+            fish.ImageData = null;
+            fish.ImageMimeType = null;
+            fishRepository.SaveFish(fish);
+            return View("Edit", fish);
         }
     }
 }
