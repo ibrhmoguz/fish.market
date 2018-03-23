@@ -37,6 +37,12 @@ namespace FishMarket.Web.Controllers
                 && x.Password.Equals(model.Password));
                 if (user != null)
                 {
+                    if (!user.ActivationStatus)
+                    {
+                        ModelState.AddModelError("", "Please activate your account!");
+                        return View();
+                    }
+
                     authProvider.Authenticate(model.Email, model.Password);
                     Session["CurrentUserId"] = user.UserId;
                     return Redirect(returnUrl ?? Url.Action("Index", "Fish"));

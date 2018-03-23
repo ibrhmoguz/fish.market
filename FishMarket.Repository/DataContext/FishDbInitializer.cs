@@ -10,8 +10,8 @@ namespace FishMarket.Repository.DataContext
         {
             var users = new List<User>
             {
-                new User{Email="ibrahim@test.com", Password="123"},
-                new User{Email="test@test.com", Password="123"}
+                new User{Email="ibrahim@test.com", Password="123", ActivationStatus=true},
+                new User{Email="test@test.com", Password="123", ActivationStatus=true}
             };
 
             users.ForEach(u => context.Users.Add(u));
