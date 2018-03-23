@@ -60,6 +60,7 @@ namespace FishMarket.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                fish.UserId = (int)Session["CurrentUserId"];
                 if (image != null)
                 {
                     fish.ImageMimeType = image.ContentType;
