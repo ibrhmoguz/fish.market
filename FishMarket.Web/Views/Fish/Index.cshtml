@@ -1,8 +1,13 @@
 ﻿
-
+@model FishMarket.Model.ViewModel.FishListViewModel
 @{
     ViewBag.Title = "Fish List";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 <h1>Fish List</h1>
+
+@foreach (var fish in Model.Fishes)
+{
+    @Html.Partial("FishDetail", fish)
+}

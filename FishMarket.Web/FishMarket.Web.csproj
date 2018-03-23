@@ -170,6 +170,7 @@
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Fish\Index.cshtml" />
+    <Content Include="Views\Fish\FishDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

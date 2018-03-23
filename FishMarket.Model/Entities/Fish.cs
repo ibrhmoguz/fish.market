@@ -13,7 +13,8 @@ namespace FishMarket.Model.Entities
         public string Name { get; set; }
         [Required]
         public double Price { get; set; }
-        public string ImageData { get; set; }
+        public byte[] ImageData { get; set; }
+        public string ImageMimeType { get; set; }
 
         public virtual User User { get; set; }
     }

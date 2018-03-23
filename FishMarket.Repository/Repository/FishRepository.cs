@@ -15,5 +15,13 @@ namespace FishMarket.Repository.Repository
                 return context.Fishes.Where(x => x.UserId.Equals(userId)).ToList();
             }
         }
+
+        public Fish GetFishById(int fishId)
+        {
+            using (FishDbContext context = new FishDbContext())
+            {
+                return context.Fishes.FirstOrDefault(f => f.FishId.Equals(fishId));
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ namespace FishMarket.Repository.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class Fish : DbMigration
     {
         public override void Up()
         {
@@ -15,7 +15,8 @@ namespace FishMarket.Repository.Migrations
                         UserId = c.Int(nullable: false),
                         Name = c.String(nullable: false),
                         Price = c.Double(nullable: false),
-                        ImageData = c.String(),
+                        ImageData = c.Binary(),
+                        ImageMimeType = c.String(),
                     })
                 .PrimaryKey(t => t.FishId)
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)

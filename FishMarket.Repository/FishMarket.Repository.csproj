@@ -51,9 +51,9 @@
     <Compile Include="DataContext\FishDbInitializer.cs" />
     <Compile Include="Interface\IFish.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\201803230928243_Initial.cs" />
-    <Compile Include="Migrations\201803230928243_Initial.Designer.cs">
-      <DependentUpon>201803230928243_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201803231246520_Fish.cs" />
+    <Compile Include="Migrations\201803231246520_Fish.Designer.cs">
+      <DependentUpon>201803231246520_Fish.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803230928243_Initial.resx">
-      <DependentUpon>201803230928243_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803231246520_Fish.resx">
+      <DependentUpon>201803231246520_Fish.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
