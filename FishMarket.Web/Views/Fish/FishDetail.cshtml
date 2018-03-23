@@ -10,12 +10,13 @@
         <strong>@Model.Name</strong>
         <span class="pull-right  label  label-primary">@Model.Price.ToString("c")</span>
     </h3>
-    @using (Html.BeginForm("AddToCart", "Cart"))
+
+    @using (Html.BeginForm("Edit", "Fish"))
     {
         <div class="pull-right">
             @Html.HiddenFor(x => x.FishId)
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" class="btn btn-success" value="Edit" />
+            <input type="submit" class="btn btn-success pull-right" value="Edit" />
         </div>
     }
 </div>
