@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FishMarket.Model.Entities
 {
     public class Fish
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FishId { get; set; }
         public int UserId { get; set; }
         [DisplayName("Fish Name")]
