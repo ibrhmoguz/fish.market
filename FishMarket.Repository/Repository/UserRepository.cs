@@ -8,35 +8,35 @@ namespace FishMarket.Repository.Repository
 {
     public class UserRepository : IUser
     {
+        FishDbContext dbContext;
+        public UserRepository(FishDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         public IEnumerable<User> GetAllUsers()
         {
-            using (FishDbContext context = new FishDbContext())
-            {
-                return context.Users.ToList();
-            }
+            return dbContext.Users.ToList();
         }
 
         public void SaveUser(User user)
         {
-            using (var context = new FishDbContext())
+            if (user.UserId == 0)
             {
-                if (user.UserId == 0)
-                {
-                    context.Users.Add(user);
-                }
-                else
-                {
-                    User userFromDb = context.Users.Find(user.UserId);
-                    if (userFromDb != null)
-                    {
-                        userFromDb.ActivationCode = user.ActivationCode;
-                        userFromDb.ActivationStatus = user.ActivationStatus;
-                        userFromDb.Email = user.Email;
-                        userFromDb.Password = user.Password;
-                    }
-                }
-                context.SaveChanges();
+                dbContext.Users.Add(user);
             }
+            else
+            {
+                User userFromDb = dbContext.Users.Find(user.UserId);
+                if (userFromDb != null)
+                {
+                    userFromDb.ActivationCode = user.ActivationCode;
+                    userFromDb.ActivationStatus = user.ActivationStatus;
+                    userFromDb.Email = user.Email;
+                    userFromDb.Password = user.Password;
+                }
+            }
+            dbContext.SaveChanges();
         }
     }
 }

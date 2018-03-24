@@ -11,8 +11,8 @@ namespace FishMarket.Repository.DataContext
         {
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Fish> Fishes { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Fish> Fishes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

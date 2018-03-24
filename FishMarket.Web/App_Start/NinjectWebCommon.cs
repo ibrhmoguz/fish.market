@@ -6,6 +6,7 @@ namespace FishMarket.Web.App_Start
     using System;
     using System.Web;
     using System.Web.Http;
+    using FishMarket.Repository.DataContext;
     using FishMarket.Repository.Interface;
     using FishMarket.Repository.Repository;
     using FishMarket.Web.Infrastructure.Abstract;
@@ -49,6 +50,7 @@ namespace FishMarket.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+            kernel.Bind<FishDbContext>().To<FishDbContext>();
             kernel.Bind<IUser>().To<UserRepository>();
             kernel.Bind<IFish>().To<FishRepository>();
         }

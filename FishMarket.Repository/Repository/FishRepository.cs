@@ -8,51 +8,45 @@ namespace FishMarket.Repository.Repository
 {
     public class FishRepository : IFish
     {
+        FishDbContext dbContext;
+        public FishRepository(FishDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         public IEnumerable<Fish> GetFishesByUserId(int userId)
         {
-            using (var context = new FishDbContext())
-            {
-                return context.Fishes.Where(x => x.UserId.Equals(userId)).ToList();
-            }
+            return dbContext.Fishes.Where(x => x.UserId.Equals(userId)).ToList();
         }
 
         public Fish GetFishById(int fishId)
         {
-            using (var context = new FishDbContext())
-            {
-                return context.Fishes.FirstOrDefault(f => f.FishId.Equals(fishId));
-            }
+            return dbContext.Fishes.FirstOrDefault(f => f.FishId.Equals(fishId));
         }
 
         public void SaveFish(Fish fish)
         {
-            using (var context = new FishDbContext())
+            if (fish.FishId == 0)
             {
-                if (fish.FishId == 0)
-                {
-                    context.Fishes.Add(fish);
-                }
-                else
-                {
-                    Fish fishFromDb = context.Fishes.Find(fish.FishId);
-                    if (fishFromDb != null)
-                    {
-                        fishFromDb.Name = fish.Name;
-                        fishFromDb.Price = fish.Price;
-                        fishFromDb.ImageData = fish.ImageData;
-                        fishFromDb.ImageMimeType = fish.ImageMimeType;
-                    }
-                }
-                context.SaveChanges();
+                dbContext.Fishes.Add(fish);
             }
+            else
+            {
+                Fish fishFromDb = dbContext.Fishes.Find(fish.FishId);
+                if (fishFromDb != null)
+                {
+                    fishFromDb.Name = fish.Name;
+                    fishFromDb.Price = fish.Price;
+                    fishFromDb.ImageData = fish.ImageData;
+                    fishFromDb.ImageMimeType = fish.ImageMimeType;
+                }
+            }
+            dbContext.SaveChanges();
         }
 
         public IEnumerable<Fish> GetFishes()
         {
-            using (var context = new FishDbContext())
-            {
-                return context.Fishes.ToList();
-            }
+            return dbContext.Fishes.ToList();
         }
     }
 }
