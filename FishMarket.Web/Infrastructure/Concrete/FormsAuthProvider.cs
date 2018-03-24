@@ -5,7 +5,7 @@ namespace FishMarket.Web.Infrastructure.Concrete
 {
     public class FormsAuthProvider : IAuthProvider
     {
-        public bool Authenticate(string username, string password)
+        public virtual bool Authenticate(string username, string password)
         {
             //bool result = FormsAuthentication.Authenticate(username, password);
             //if (result)
@@ -17,7 +17,7 @@ namespace FishMarket.Web.Infrastructure.Concrete
             return true;
         }
 
-        public void SignOut()
+        public virtual void SignOut()
         {
             FormsAuthentication.SignOut();
         }

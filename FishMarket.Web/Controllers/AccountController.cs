@@ -39,7 +39,7 @@ namespace FishMarket.Web.Controllers
                 {
                     if (!user.ActivationStatus)
                     {
-                        ModelState.AddModelError("", "Please activate your account!");
+                        ModelState.AddModelError("NotActivatedAccount", "Please activate your account!");
                         return View();
                     }
 
@@ -49,7 +49,7 @@ namespace FishMarket.Web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Incorrect e-mail or password!");
+                    ModelState.AddModelError("IncorrectInfo", "Incorrect e-mail or password!");
                     return View();
                 }
             }
@@ -83,7 +83,7 @@ namespace FishMarket.Web.Controllers
                 var userFromDb = userRepository.GetAllUsers().FirstOrDefault(x => x.Email.Equals(model.Email));
                 if (userFromDb != null)
                 {
-                    ModelState.AddModelError("", "E-mail is already registered!");
+                    ModelState.AddModelError("AlreadyRegistered", "E-mail is already registered!");
                     return View();
                 }
                 else
@@ -111,7 +111,7 @@ namespace FishMarket.Web.Controllers
             }
         }
 
-        private void SendActivationMail(string email, string activationCode)
+        public virtual void SendActivationMail(string email, string activationCode)
         {
             var subject = "The activation code from Fish Market";
             var body = string.Format(@"Please click to activate your account! http://localhost:50018/Account/Activate?mail={0}&code={1}", email, activationCode);
@@ -167,7 +167,7 @@ namespace FishMarket.Web.Controllers
         [AllowAnonymous]
         public ActionResult Activate(string mail, string code)
         {
-            var user = userRepository.GetAllUsers().FirstOrDefault(key => key.Email.Equals(mail) && key.ActivationCode.Equals(code));
+            var user = userRepository.GetAllUsers().FirstOrDefault(key => key.ActivationStatus == false && key.Email.Equals(mail) && key.ActivationCode.Equals(code));
             if (user != null)
             {
                 user.ActivationStatus = true;

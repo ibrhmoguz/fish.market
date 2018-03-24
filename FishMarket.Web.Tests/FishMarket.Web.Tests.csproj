@@ -95,6 +95,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FakeControllerContext.cs" />
     <Compile Include="Controller\AccountControllerTest.cs" />
     <Compile Include="Controller\FishControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

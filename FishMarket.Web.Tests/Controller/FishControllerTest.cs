@@ -7,6 +7,7 @@ using System.Linq;
 using FishMarket.Model.ViewModel;
 using FishMarket.Model.Entities;
 using System.Text;
+using FishMarket.Web.Tests.Common;
 
 namespace FishMarket.Web.Tests.Controller
 {
@@ -19,7 +20,7 @@ namespace FishMarket.Web.Tests.Controller
             var fishRepository = new FishRepositoryMock().GetUserRepoMockedInstance();
             var fishController = new FishController(fishRepository)
             {
-                ControllerContext = FakeControllerContext()
+                ControllerContext = FakeControllerContext.GetContextWithMockedSession()
             };
 
             var result = fishController.Index();
@@ -37,7 +38,7 @@ namespace FishMarket.Web.Tests.Controller
             var fishRepository = new FishRepositoryMock().GetUserRepoMockedInstance();
             var fishController = new FishController(fishRepository)
             {
-                ControllerContext = FakeControllerContextNullSession()
+                ControllerContext = FakeControllerContext.GetContextWithMockedNullSession()
             };
 
             var result = fishController.Index();
@@ -85,7 +86,7 @@ namespace FishMarket.Web.Tests.Controller
             var fishRepository = new FishRepositoryMock().GetUserRepoMockedInstance();
             var fishController = new FishController(fishRepository)
             {
-                ControllerContext = FakeControllerContext()
+                ControllerContext = FakeControllerContext.GetContextWithMockedSession()
             };
 
             var fish = new Fish { FishId = 1, UserId = 1, Name = "Lüfer", Price = 15.90, ImageData = Encoding.UTF8.GetBytes("LüferFoto"), ImageMimeType = "image/png" };
@@ -103,20 +104,6 @@ namespace FishMarket.Web.Tests.Controller
             var model = (Fish)((ViewResult)result).Model;
 
             Assert.AreEqual(null, model.ImageData);
-        }
-
-        private static ControllerContext FakeControllerContext()
-        {
-            var mockControllerContext = new Mock<ControllerContext>();
-            mockControllerContext.SetupGet(x => x.HttpContext.Session["CurrentUserId"]).Returns(1);
-            return mockControllerContext.Object;
-        }
-
-        private static ControllerContext FakeControllerContextNullSession()
-        {
-            var mockControllerContext = new Mock<ControllerContext>();
-            mockControllerContext.SetupGet(x => x.HttpContext.Session["CurrentUserId"]).Returns(null);
-            return mockControllerContext.Object;
         }
     }
 }
