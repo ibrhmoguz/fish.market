@@ -3,12 +3,9 @@ using FishMarket.Repository.DataContext;
 using FishMarket.Repository.Interface;
 using FishMarket.Repository.Repository;
 using Moq;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FishMarket.Web.Tests.Repository
 {

@@ -9,7 +9,7 @@ namespace FishMarket.Web.Tests.Repository
     public class UserRepositoryTest
     {
         [TestMethod]
-        public void Return_All_Users()
+        public void ReturnAllUsers()
         {
             var userRepository = new UserRepositoryMock().GetUserRepoMockedInstance();
 
@@ -20,7 +20,7 @@ namespace FishMarket.Web.Tests.Repository
         }
 
         [TestMethod]
-        public void Add_User()
+        public void AddUser()
         {
             var mockedUserRepo = new UserRepositoryMock();
             var userRepository = mockedUserRepo.GetUserRepoMockedInstance();
@@ -33,7 +33,7 @@ namespace FishMarket.Web.Tests.Repository
         }
 
         [TestMethod]
-        public void Update_User()
+        public void UpdateUser()
         {
             var mockedUserRepo = new UserRepositoryMock();
             var userRepository = mockedUserRepo.GetUserRepoMockedInstance();
