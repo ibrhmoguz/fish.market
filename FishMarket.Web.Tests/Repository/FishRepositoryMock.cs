@@ -6,6 +6,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
 
 namespace FishMarket.Web.Tests.Repository
 {
@@ -34,7 +35,7 @@ namespace FishMarket.Web.Tests.Repository
         {
             return new List<Fish>
             {
-                new Fish(){FishId=1, UserId=1, Name="Lüfer", Price=15.90},
+                new Fish(){FishId=1, UserId=1, Name="Lüfer", Price=15.90, ImageData=Encoding.UTF8.GetBytes("LüferFoto"), ImageMimeType="image/png"},
                 new Fish(){FishId=2,UserId=1, Name="Somon", Price=25.90},
                 new Fish(){FishId=3,UserId=1, Name="Palamut", Price=15.90},
                 new Fish(){FishId=4,UserId=2, Name="Çinekop", Price=15.90},

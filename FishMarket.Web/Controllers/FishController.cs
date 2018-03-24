@@ -2,8 +2,6 @@
 using FishMarket.Model.ViewModel;
 using FishMarket.Repository.Interface;
 using FishMarket.Web.Infrastructure.Concrete;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
