@@ -20,7 +20,21 @@ namespace FishMarket.Repository.Repository
         {
             using (var context = new FishDbContext())
             {
-                context.Users.Add(user);
+                if (user.UserId == 0)
+                {
+                    context.Users.Add(user);
+                }
+                else
+                {
+                    User userFromDb = context.Users.Find(user.UserId);
+                    if (userFromDb != null)
+                    {
+                        userFromDb.ActivationCode = user.ActivationCode;
+                        userFromDb.ActivationStatus = user.ActivationStatus;
+                        userFromDb.Email = user.Email;
+                        userFromDb.Password = user.Password;
+                    }
+                }
                 context.SaveChanges();
             }
         }
